@@ -95,6 +95,9 @@
             padding: 20px 20px 18px;
             box-shadow: 0 10px 24px rgba(0,0,0,0.12);
         }
+        .insights { display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin:10px 0 18px; }
+        .insight { display:flex; align-items:center; gap:10px; padding:12px 14px; border-radius:12px; background: rgba(255,255,255,0.92); border:1px solid rgba(0,0,0,0.06); box-shadow:0 8px 18px rgba(0,0,0,0.12); font-weight:600; color:#1b3a57; }
+        .insight i { color:#2563eb; }
         .metrics { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 14px; }
         .metric { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; font-weight:600; color:#0f5132; background:linear-gradient(135deg, #d1f5e1, #c4f0db); border:1px solid #b6e8cf; box-shadow:0 4px 12px rgba(0,0,0,0.08); }
         .metric i { color:#118f57; }
@@ -189,6 +192,15 @@
             <p>
                 This showcase demonstrates a performance-focused Meta (Facebook) Ads approach. We combine structured creative testing, optimized delivery, and audience refinement to consistently improve CPA and conversion quality. Below are snapshots of campaign results and creative iterations used to achieve scalable performance.
             </p>
+            <h2 style="margin:14px 0 8px">Executive Insights</h2>
+            <div class="insights">
+                <div class="insight"><i class="fas fa-bullseye"></i> Offer–intent alignment drives lower CPA</div>
+                <div class="insight"><i class="fas fa-video"></i> Native UGC creative increases engagement</div>
+                <div class="insight"><i class="fas fa-location-dot"></i> Precision geo + Lookalikes stabilize delivery</div>
+                <div class="insight"><i class="fas fa-diagram-project"></i> ABO control → CBO scale without relearning</div>
+                <div class="insight"><i class="fas fa-gauge-high"></i> Guardrails: fatigue, saturation, ROAS by event</div>
+                <div class="insight"><i class="fas fa-route"></i> Congruent landing flow improves conversion rate</div>
+            </div>
         </div>
 
         <div class="grid">
@@ -230,15 +242,15 @@
         <div class="description">
             <h2 style="margin-top:0">Strategy Breakdown: From Hypothesis to Scale</h2>
             <ol>
-                <li><strong>Diagnostics:</strong> Rapid audit of account, conversion pipeline and signal quality. Verified Pixel + CAPI deduping and ensured high‑value events are correctly attributed.</li>
-                <li><strong>Offer–Market Fit:</strong> Reframed offer to reduce friction (free measure + 48‑hour quote) and raise perceived value. Mapped objections to creative angles.</li>
-                <li><strong>Test Matrix:</strong> Structured experiments across hooks × visuals × CTAs. Kept variables isolated to attribute movement in CPA/LTV with confidence.</li>
-                <li><strong>Targeting Architecture:</strong> Geo‑fenced radius with layered interests; Lookalikes seeded by high‑quality events. Balanced reach and relevance for stable delivery.</li>
-                <li><strong>Delivery Optimization:</strong> Began in ABO for control and clean reads; promoted winners to CBO once signals stabilized. Scaled budgets smoothly to avoid relearning.</li>
-                <li><strong>Measurement Guardrails:</strong> Tracked install‑level ROAS, creative fatigue, and audience saturation. Rotated angles before decay and pruned high‑CPA sets weekly.</li>
-                <li><strong>Retargeting Flows:</strong> Short‑window retargeting to engaged visitors and qualified video viewers with testimonial snippets and deadline CTAs.</li>
-                <li><strong>Landing Experience:</strong> Reduced friction on the page: relevant headline, near‑fold proof, single action. Kept congruence between ad promise and page copy.</li>
-                <li><strong>Scale Policy:</strong> Expanded winners incrementally, cloned into adjacent geos, and monitored delivery stability. Protected signal quality with budget pacing.</li>
+                <li><strong>Diagnostics:</strong> Rapid audit across account, conversion path and signal quality. Pixel + CAPI deduped; high‑value events verified for attribution integrity.</li>
+                <li><strong>Offer–Market Fit:</strong> Reduced friction (free measure + 48‑hour quote) and increased perceived value. Objections mapped directly to creative angles.</li>
+                <li><strong>Test Matrix:</strong> Controlled experiments across hooks × visuals × CTAs. Variables isolated to attribute CPA/LTV movement with confidence.</li>
+                <li><strong>Targeting Architecture:</strong> Geo‑fenced radius with layered interests; Lookalikes seeded by high‑quality events. Balanced reach vs. relevance to stabilize delivery.</li>
+                <li><strong>Delivery Optimization:</strong> ABO for control and clean reads → promote winners to CBO when signals stabilize. Budgets scaled smoothly to avoid relearning.</li>
+                <li><strong>Measurement Guardrails:</strong> Monitor install‑level ROAS, creative fatigue and audience saturation. Rotate angles pre‑decay; prune high‑CPA sets weekly.</li>
+                <li><strong>Retargeting Flows:</strong> Short‑window retargeting to engaged visitors and qualified video viewers using testimonial snippets and deadline CTAs.</li>
+                <li><strong>Landing Experience:</strong> Reduce friction: relevant headline, near‑fold proof, single action. Keep ad promise congruent with page copy.</li>
+                <li><strong>Scale Policy:</strong> Expand winners incrementally, clone into adjacent geos, and monitor stability. Protect signal quality via paced budget increases.</li>
             </ol>
             <p><strong>Result:</strong> A repeatable, data‑driven loop that compounds: precise targeting, native creative, and frictionless offers—measured continuously and scaled responsibly.</p>
         </div>
