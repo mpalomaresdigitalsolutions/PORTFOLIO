@@ -1,5 +1,5 @@
 // Service Worker for Performance Optimization
-const CACHE_NAME = 'portfolio-v1';
+const CACHE_NAME = 'portfolio-v2';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -24,6 +24,7 @@ self.addEventListener('install', event => {
                 console.log('Cache install failed:', error);
             })
     );
+    self.skipWaiting();
 });
 
 // Activate event - clean up old caches
@@ -40,16 +41,38 @@ self.addEventListener('activate', event => {
             );
         })
     );
+    self.clients.claim();
 });
 
 // Fetch event - serve from cache, fallback to network
 self.addEventListener('fetch', event => {
     const { request } = event;
-    // Only handle GET requests over http/https. Skip extension, data:, chrome-extension, etc.
     if (request.method !== 'GET') return;
     const url = new URL(request.url);
     const isHttp = url.protocol === 'http:' || url.protocol === 'https:';
-    if (!isHttp) return; // Let the browser (or extension) handle non-http requests
+    if (!isHttp) return;
+
+    const accept = request.headers.get('accept') || '';
+    const isHtml = request.destination === 'document' || accept.includes('text/html');
+
+    if (isHtml) {
+        event.respondWith(
+            fetch(request)
+                .then(networkResponse => {
+                    const responseToCache = networkResponse.clone();
+                    if (url.origin === self.location.origin && networkResponse.status === 200) {
+                        caches.open(CACHE_NAME).then(cache => {
+                            cache.put(request, responseToCache).catch(() => {});
+                        });
+                    }
+                    return networkResponse;
+                })
+                .catch(() => {
+                    return caches.match(request).then(r => r || caches.match('/index.html'));
+                })
+        );
+        return;
+    }
 
     event.respondWith(
         caches.match(request)
@@ -57,32 +80,20 @@ self.addEventListener('fetch', event => {
                 if (cacheResponse) {
                     return cacheResponse;
                 }
-
                 return fetch(request).then(networkResponse => {
-                    // Validate response
                     if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
                         return networkResponse;
                     }
-
-                    // Only cache same-origin responses to avoid opaque/cross-origin issues
                     const responseToCache = networkResponse.clone();
                     if (url.origin === self.location.origin) {
-                        caches.open(CACHE_NAME)
-                            .then(cache => {
-                                cache.put(request, responseToCache).catch(err => {
-                                    // Avoid throwing for unsupported schemes or edge cases
-                                    console.warn('Cache put skipped:', err);
-                                });
-                            });
+                        caches.open(CACHE_NAME).then(cache => {
+                            cache.put(request, responseToCache).catch(() => {});
+                        });
                     }
-
                     return networkResponse;
                 });
             })
-            .catch(error => {
-                console.log('Fetch failed, returning offline page:', error);
-                return caches.match('/index.html');
-            })
+            .catch(() => caches.match('/index.html'))
     );
 });
 

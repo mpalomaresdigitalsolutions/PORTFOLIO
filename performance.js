@@ -142,7 +142,7 @@
     function registerServiceWorker() {
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                navigator.serviceWorker.register('sw.js')
                     .then(registration => {
                         console.log('ServiceWorker registration successful:', registration.scope);
                         
@@ -155,6 +155,13 @@
                                     console.log('New content available, please refresh.');
                                 }
                             });
+                        });
+                        registration.update();
+                        if (registration.waiting) {
+                            registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+                        }
+                        navigator.serviceWorker.addEventListener('controllerchange', () => {
+                            window.location.reload();
                         });
                     })
                     .catch(error => {
