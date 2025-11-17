@@ -95,6 +95,9 @@
             padding: 20px 20px 18px;
             box-shadow: 0 10px 24px rgba(0,0,0,0.12);
         }
+        .metrics { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 14px; }
+        .metric { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; font-weight:600; color:#0f5132; background:linear-gradient(135deg, #d1f5e1, #c4f0db); border:1px solid #b6e8cf; box-shadow:0 4px 12px rgba(0,0,0,0.08); }
+        .metric i { color:#118f57; }
         .cta {
             margin-top: 24px;
             text-align: center;
@@ -204,6 +207,11 @@
         </div>
         <div class="description">
             <h2 style="margin-top:0">Mirror Local Business: How We Achieved These Results</h2>
+            <div class="metrics">
+                <span class="metric"><i class="fas fa-arrow-down"></i> CPA ↓ 47%</span>
+                <span class="metric"><i class="fas fa-chart-line"></i> ROAS ×3.2</span>
+                <span class="metric"><i class="fas fa-arrow-up"></i> Bookings ↑ 62%</span>
+            </div>
             <p><strong>Challenge:</strong> Leads were expensive and low intent despite consistent ad spend. Conversions lagged due to friction in the offer and generic creative.</p>
             <p><strong>Approach:</strong> Align offer, targeting and creative to local intent. Verify Pixel + Conversion API, dedupe events, and set up structured tests (hooks × visuals × CTAs) to isolate drivers of CPA.</p>
             <ul>
