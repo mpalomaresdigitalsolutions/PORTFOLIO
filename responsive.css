@@ -4,33 +4,55 @@
 .sticky-call-btn {
   position: fixed;
   bottom: 20px;
-  right: 20px;
-  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  left: 20px;
+  background: var(--primary-600, #2563eb);
   color: #fff;
-  padding: 12px 20px;
+  padding: 14px 22px;
   border-radius: 50px;
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
   font-weight: 600;
   text-decoration: none;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  z-index: 999;
+  z-index: 1002;
   transition: all .25s ease;
-  font-size: 14px;
+  font-size: 16px;
+  min-width: 180px;
+  min-height: 48px;
+  white-space: nowrap;
+  border: none;
 }
 .sticky-call-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,.3);
-  background: linear-gradient(135deg, #ff5252, #ff7a7a);
+  background: var(--primary-700, #1e40af);
 }
 .sticky-call-btn i {
   font-size: 16px;
+  color: #fff;
 }
-/* Hide on large screens by default */
+
+.sticky-call-btn span {
+  color: #fff !important;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0,0,0,.55);
+}
+
+.sticky-call-btn i {
+  text-shadow: 0 1px 2px rgba(0,0,0,.55);
+}
+
+.sticky-call-btn,
+.sticky-call-btn:visited,
+.sticky-call-btn:hover,
+.sticky-call-btn:focus {
+  color: #fff !important;
+}
 @media (min-width: 768px) {
   .sticky-call-btn {
-    display: none;
+    display: flex;
   }
 }
 

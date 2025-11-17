@@ -6,57 +6,13 @@
     <meta name="description" content="Digital Marketing Specialist portfolio showcasing expertise in Google Ads, Analytics, and creative marketing solutions.">
     <meta name="keywords" content="digital marketing, google ads, analytics, creative portfolio, marketing specialist">
     <title>Creative Portfolio - Digital Marketing Specialist</title>
-    <link rel="preload" href="styles.min.css" as="style">
-    <link rel="preload" href="responsive.css" as="style">
-    <link rel="preload" href="chatbot-enhanced.css" as="style">
-    <link rel="stylesheet" href="styles.min.css">
-    <link rel="stylesheet" href="headline-animation.css">
-    <link rel="stylesheet" href="responsive.css">
-    <link rel="stylesheet" href="chatbot-enhanced.css">
-    <style>
-        .book-call-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
-            color: white !important;
-            padding: var(--space-4) var(--space-6);
-            border-radius: var(--radius-full);
-            text-decoration: none;
-            font-weight: var(--font-weight-semibold);
-            font-size: var(--font-size-base);
-            margin-top: var(--space-6);
-            transition: all var(--transition-normal);
-            box-shadow: var(--shadow-md);
-            border: none;
-        }
-        
-        .book-call-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
-            background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
-        }
-        
-        .book-call-btn:focus {
-            outline: 2px solid var(--primary-300);
-            outline-offset: 2px;
-        }
-        
-        .book-call-btn i {
-            margin-right: 8px;
-        }
-    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="Profile.png" as="image">
+    <link rel="preload" href="Profile.png" as="image" fetchpriority="high">
     <link rel="preload" href="critical.css" as="style">
-    <link rel="preload" href="styles.min.css" as="style">
-    <link rel="preload" href="responsive.css" as="style">
     <meta name="description" content="Marlon Palomares - Digital Marketing Specialist & Web Developer with expertise in Google Ads, SEO, and GoHighLevel automation">
     <!-- Mobile UX meta -->
     <meta name="theme-color" content="#3b82f6">
@@ -69,11 +25,15 @@
     <link rel="stylesheet" href="critical.css">
     <link rel="stylesheet" href="styles.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="responsive.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="headline-animation.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="chatbot-enhanced.css" media="print" onload="this.media='all'">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript>
         <link rel="stylesheet" href="styles.min.css">
         <link rel="stylesheet" href="responsive.css">
+        <link rel="stylesheet" href="headline-animation.css">
+        <link rel="stylesheet" href="chatbot-enhanced.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </noscript>
@@ -82,7 +42,7 @@
     <style>
         .book-call-btn {
             background: var(--primary-500, #3b82f6);
-            color: white;
+            color: #fff !important;
             padding: 0.75rem 1.5rem;
             border-radius: 0.5rem;
             font-weight: 600;
@@ -100,10 +60,14 @@
             background: var(--primary-600, #2563eb);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            color: #fff !important;
         }
-        .book-call-btn:focus {
-            outline: 2px solid var(--primary-500, #3b82f6);
-            outline-offset: 2px;
+        .book-call-btn:focus,
+        .book-call-btn:visited {
+            color: #fff !important;
+        }
+        .book-call-btn i {
+            color: #fff;
         }
     </style>
 </head>
@@ -189,27 +153,27 @@
                 <p>7 Professional Certifications - <a href="certifications.html">View All Certifications</a></p>
                 <div class="certifications-grid">
                     <div class="certificate-item">
-                        <img src="images/Google Search.png" alt="Google Search Ads Certification" class="certificate-image" width="120" height="120">
+                        <img src="images/Google Search.png" alt="Google Search Ads Certification" class="certificate-image" width="120" height="120" loading="lazy" decoding="async">
                         <div class="certificate-title">Google Search Ads</div>
             </div>
                     <div class="certificate-item">
-                        <img src="images/Google display.png" alt="Google Display Ads Certification" class="certificate-image" width="120" height="120">
+                        <img src="images/Google display.png" alt="Google Display Ads Certification" class="certificate-image" width="120" height="120" loading="lazy" decoding="async">
                         <div class="certificate-title">Google Display Ads</div>
                     </div>
                     <div class="certificate-item">
-                        <img src="images/Google Video.png" alt="Google Video Ads Certification" class="certificate-image" width="120" height="120">
+                        <img src="images/Google Video.png" alt="Google Video Ads Certification" class="certificate-image" width="120" height="120" loading="lazy" decoding="async">
                         <div class="certificate-title">Google Video Ads</div>
                     </div>
                     <div class="certificate-item">
-                        <img src="images/Google Analytics.png" alt="Google Analytics Certification" class="certificate-image" width="120" height="120">
+                        <img src="images/Google Analytics.png" alt="Google Analytics Certification" class="certificate-image" width="120" height="120" loading="lazy" decoding="async">
                         <div class="certificate-title">Google Analytics</div>
                     </div>
                     <div class="certificate-item">
-                        <img src="images/Google Shopping.png" alt="Google Shopping Ads Certification" class="certificate-image" width="120" height="120">
+                        <img src="images/Google Shopping.png" alt="Google Shopping Ads Certification" class="certificate-image" width="120" height="120" loading="lazy" decoding="async">
                         <div class="certificate-title">Google Shopping</div>
                     </div>
                     <div class="certificate-item">
-                        <img src="images/Semrush.png" alt="SEMrush Certification" class="certificate-image" width="120" height="120">
+                        <img src="images/Semrush.png" alt="SEMrush Certification" class="certificate-image" width="120" height="120" loading="lazy" decoding="async">
                         <div class="certificate-title">SEMrush Certification</div>
                     </div>
                 </div>
@@ -219,7 +183,7 @@
         <main class="main-content" id="main-content">
             <div class="content-section animate-fadeInUp">
                 <div class="profile-section hover-lift">
-                    <img src="Profile.png" alt="Professional headshot of Marlon Palomares, Digital Marketing Specialist" class="profile-img hover-scale" width="120" height="120">
+                    <img src="Profile.png" alt="Professional headshot of Marlon Palomares, Digital Marketing Specialist" class="profile-img hover-scale" width="160" height="200" fetchpriority="high" decoding="async">
                     <div class="headline-container">
                         <h1>Google Ads Specialist | Meta Ads Strategy | Funnels & Tracking</h1>
                       </div>

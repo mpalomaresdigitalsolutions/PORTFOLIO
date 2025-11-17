@@ -177,6 +177,18 @@
             color: #ff6b6b;
         }
 
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         @media (max-width: 768px) {
             .samples-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -201,7 +213,7 @@
 
         <div class="samples-grid">
             <div class="sample-item">
-                <img src="./GHL images/Email Automation.png" alt="Email Automation Implementation" class="sample-image">
+                <img src="./GHL images/Email Automation.png" alt="Email Automation Implementation" class="sample-image" loading="lazy" decoding="async">
                 <div class="sample-title">Email Automation Implementation</div>
                 <div class="sample-description">
                     Automated email sequences designed to nurture leads through the customer journey, with personalized messaging and strategic timing for maximum engagement.
@@ -209,7 +221,7 @@
             </div>
 
             <div class="sample-item">
-                <img src="./GHL images/funnels.png" alt="Sales Funnel Creation" class="sample-image">
+                <img src="./GHL images/funnels.png" alt="Sales Funnel Creation" class="sample-image" loading="lazy" decoding="async">
                 <div class="sample-title">Sales Funnel Creation</div>
                 <div class="sample-description">
                     High-converting sales funnels built specifically for service businesses, optimized for lead generation and customer acquisition through strategic landing pages.
@@ -217,7 +229,7 @@
             </div>
 
             <div class="sample-item">
-                <img src="./GHL images/Sample_Email.png" alt="Sample Email Campaigns" class="sample-image">
+                <img src="./GHL images/Sample_Email.png" alt="Sample Email Campaigns" class="sample-image" loading="lazy" decoding="async">
                 <div class="sample-title">Sample Email Campaigns</div>
                 <div class="sample-description">
                     Professionally crafted email campaigns with compelling copy and strategic call-to-actions, designed to improve open rates and drive conversions for service-based businesses.
@@ -225,7 +237,7 @@
             </div>
 
             <div class="sample-item">
-                <img src="./GHL images/website.jpg" alt="GHL Website Development" class="sample-image">
+                <img src="./GHL images/website.jpg" alt="GHL Website Development" class="sample-image" loading="lazy" decoding="async">
                 <div class="sample-title">GHL Website Development</div>
                 <div class="sample-description">
                     Custom website development within GoHighLevel platform, featuring responsive design, lead capture forms, and seamless integration with CRM and automation workflows.
@@ -233,7 +245,7 @@
             </div>
 
             <div class="sample-item">
-                <img src="./GHL images/Plumbing Landing Page.png" alt="Plumbing Service Landing Page" class="sample-image">
+                <img src="./GHL images/Plumbing Landing Page.png" alt="Plumbing Service Landing Page" class="sample-image" loading="lazy" decoding="async">
                 <div class="sample-title">Plumbing Service Landing Page</div>
                 <div class="sample-description">
                     High-converting landing page specifically designed for plumbing services, featuring emergency booking forms, service area targeting, and lead qualification funnels for immediate customer acquisition.
@@ -242,39 +254,68 @@
         </div>
     </div>
 
-    <!-- Lightbox Modal -->
-    <div id="image-lightbox" class="image-lightbox">
+    <div id="image-lightbox" class="image-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
         <div class="lightbox-content">
-            <span class="lightbox-close">&times;</span>
+            <h2 id="lightbox-title" class="sr-only">Image preview</h2>
+            <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
             <img class="lightbox-image" src="" alt="">
         </div>
     </div>
 
     <script>
-        // Image lightbox functionality
         document.addEventListener('DOMContentLoaded', function() {
             const images = document.querySelectorAll('.sample-image');
             const lightbox = document.getElementById('image-lightbox');
             const lightboxImg = lightbox.querySelector('.lightbox-image');
             const lightboxClose = lightbox.querySelector('.lightbox-close');
+            let lastFocused = null;
 
             images.forEach(img => {
+                img.setAttribute('tabindex', '0');
+                img.setAttribute('role', 'button');
+                img.setAttribute('aria-label', 'Open image preview');
                 img.addEventListener('click', () => {
+                    lastFocused = document.activeElement;
                     lightboxImg.src = img.src;
                     lightbox.style.display = 'flex';
+                    lightbox.setAttribute('aria-hidden', 'false');
                     document.body.style.overflow = 'hidden';
+                    lightboxClose.focus();
+                });
+                img.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        lastFocused = document.activeElement;
+                        lightboxImg.src = img.src;
+                        lightbox.style.display = 'flex';
+                        lightbox.setAttribute('aria-hidden', 'false');
+                        document.body.style.overflow = 'hidden';
+                        lightboxClose.focus();
+                    }
                 });
             });
 
             function closeLightbox() {
                 lightbox.style.display = 'none';
+                lightbox.setAttribute('aria-hidden', 'true');
                 document.body.style.overflow = 'auto';
+                if (lastFocused) {
+                    lastFocused.focus();
+                    lastFocused = null;
+                }
             }
 
             lightboxClose.addEventListener('click', closeLightbox);
             lightbox.addEventListener('click', (e) => {
                 if (e.target === lightbox) {
                     closeLightbox();
+                }
+            });
+
+            lightbox.addEventListener('keydown', (e) => {
+                if (e.key === 'Tab') {
+                    e.preventDefault();
+                    lightboxClose.focus();
                 }
             });
 
