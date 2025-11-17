@@ -76,6 +76,7 @@
             height: auto;
             transition: transform 200ms ease;
         }
+        .card img:focus-visible { outline: 3px solid #2563eb; outline-offset: -2px; }
         .card .caption {
             position: absolute;
             left: 12px;
@@ -340,6 +341,15 @@
             document.querySelectorAll('.card img').forEach(el => {
                 el.addEventListener('click', () => openLightbox(el.src, el.alt));
                 el.style.cursor = 'zoom-in';
+                el.setAttribute('tabindex','0');
+                el.setAttribute('role','button');
+                el.setAttribute('aria-label','Click to zoom');
+                el.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openLightbox(el.src, el.alt);
+                    }
+                });
             });
 
             // Wheel to zoom
