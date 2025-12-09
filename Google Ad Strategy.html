@@ -456,9 +456,13 @@
                 font-size: 1.5rem;
             }
         }
+        @media (prefers-reduced-motion: reduce) {
+            * { transition: none !important; animation: none !important; }
+        }
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
     <div class="container">
         <header class="header">
             <a href="index.html" class="nav-back">
@@ -471,7 +475,7 @@
             <p class="service-subtitle">Strategic planning and campaign development for maximum advertising impact</p>
         </header>
 
-        <div class="main-content">
+        <div class="main-content" id="main-content" role="main">
             <div class="section">
                 <h2 class="section-title">Strategic Approach to Google Ads</h2>
                 <p>Our Google Ads strategy service focuses on creating comprehensive, data-driven advertising plans that align with your business objectives. We develop targeted campaigns that reach the right audience at the right time with the right message.</p>

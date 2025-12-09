@@ -187,11 +187,15 @@
             font-size: 0.9rem;
             opacity: 0.85;
         }
+        @media (prefers-reduced-motion: reduce) {
+            * { transition: none !important; animation: none !important; }
+        }
     </style>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <div class="container">
+    <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
+    <div class="container" id="main-content" role="main">
         <div class="header">
             <h1><i class="fab fa-facebook"></i> Meta Ads Strategy</h1>
             <p class="hook">Scale profitable Meta Ads with data-driven creative testing and precision audience targeting. Turn scrolls into conversions.</p>
@@ -220,11 +224,11 @@
 
         <div class="grid" id="gallery">
             <div class="card" tabindex="0">
-                <img src="images/meta results.jpg?v=cb1" alt="Meta Ads campaign results dashboard" loading="lazy" />
+                <img src="images/meta results.jpg?v=cb1" alt="Meta Ads campaign results dashboard" loading="lazy" decoding="async" />
                 <div class="caption">Results snapshot: improved ROAS and reduced CPA through audience refinement and creative testing.</div>
             </div>
             <div class="card" tabindex="0">
-                <img src="images/meta1.jpg?v=cb1" alt="Meta Ads creative and ad set preview" loading="lazy" />
+                <img src="images/meta1.jpg?v=cb1" alt="Meta Ads creative and ad set preview" loading="lazy" decoding="async" />
                 <div class="caption">Creative iteration: high-performing hooks and value-driven angles tested across lookalike and interest audiences.</div>
             </div>
             <div class="grid-note">
@@ -242,7 +246,7 @@
                 </ul>
             </div>
             <div class="card" tabindex="0">
-                <img src="images/Mirror local bussines .jpeg?v=cb1" alt="Mirror Local Business campaign results overview" loading="lazy" />
+                <img src="images/Mirror local bussines .jpeg?v=cb1" alt="Mirror Local Business campaign results overview" loading="lazy" decoding="async" />
                 <div class="caption"><strong>Mirror Local Business</strong>: hyper-local strategy with native creative and low-friction offers.</div>
             </div>
         </div>
@@ -290,7 +294,7 @@
         
 
         <div class="cta reveal" id="cta">
-            <a class="btn" href="https://calendar.app.google/j9dGSzcMANbs8wL88" target="_blank"><i class="fas fa-calendar-alt"></i> Book a Strategy Call</a>
+            <a class="btn" href="https://calendar.app.google/j9dGSzcMANbs8wL88" target="_blank" rel="noopener noreferrer"><i class="fas fa-calendar-alt"></i> Book a Strategy Call</a>
             <div class="sub-cta">Prefer a quick review first? <a href="Google Ads Audit.html" style="color:#fff; text-decoration:underline;">Request an ad account audit</a>.</div>
             <a class="back-link" href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
         </div>
